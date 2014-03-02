@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "GroupObject.h"
 
-@interface PhotosViewController : UIViewController
+
+@interface PhotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, retain) ALAssetsLibrary* assetLibrary;
-@property (nonatomic, retain) NSMutableArray* group;
+//@property (nonatomic, retain) NSMutableArray* group;
+@property (nonatomic, retain) GroupObject* targetGroupObj;
 @property (nonatomic, retain) NSString* groupName;
 
 - (id)initWitheGroupName:(NSString*)name;

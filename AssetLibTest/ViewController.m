@@ -149,10 +149,14 @@
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GroupObject* groupObj = self.group[indexPath.row];
-    PhotosViewController* viewController = [[PhotosViewController alloc] initWitheGroupName:[groupObj.groupAssets valueForProperty:ALAssetsGroupPropertyName ] ];
+    PhotosViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotosViewController"];
+    
+    viewController.title = [groupObj.groupAssets valueForProperty:ALAssetsGroupPropertyName ];
     viewController.assetLibrary = self.assetLibrary;
-    viewController.group = self.group;
-    [self.navigationController pushViewController:viewController animated:NO];
+    //viewController.group = self.group;
+    viewController.groupName = [groupObj.groupAssets valueForProperty:ALAssetsGroupPropertyName ];
+    viewController.targetGroupObj = groupObj;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath

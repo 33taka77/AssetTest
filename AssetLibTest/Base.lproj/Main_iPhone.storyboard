@@ -98,7 +98,7 @@
         <!--Photos View Controller-->
         <scene sceneID="hol-JK-T2H">
             <objects>
-                <viewController id="Boj-02-g2d" customClass="PhotosViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Boj-02-g2d" customClass="PhotosViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w43-Ta-pRv"/>
                         <viewControllerLayoutGuide type="bottom" id="TYr-Zw-2TV"/>

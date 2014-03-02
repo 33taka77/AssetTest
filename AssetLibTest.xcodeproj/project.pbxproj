@@ -27,6 +27,8 @@
 		F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782DDD18C205FF00D29131 /* GroupObject.m */; };
 		F9782E7918C2CD3A00D29131 /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782E7818C2CD3900D29131 /* GroupCell.m */; };
 		F9782E7C18C30BDC00D29131 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782E7B18C30BDC00D29131 /* PhotosViewController.m */; };
+		F9782F0D18C347D400D29131 /* PhotoViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782F0C18C347D400D29131 /* PhotoViewBaseCell.m */; };
+		F9782F1018C3526500D29131 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782F0F18C3526500D29131 /* PhotoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		F9782E7818C2CD3900D29131 /* GroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCell.m; sourceTree = "<group>"; };
 		F9782E7A18C30BDC00D29131 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		F9782E7B18C30BDC00D29131 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		F9782F0B18C347D400D29131 /* PhotoViewBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewBaseCell.h; sourceTree = "<group>"; };
+		F9782F0C18C347D400D29131 /* PhotoViewBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewBaseCell.m; sourceTree = "<group>"; };
+		F9782F0E18C3526400D29131 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		F9782F0F18C3526500D29131 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +140,12 @@
 				F9782DAF18C1F96F00D29131 /* AppDelegate.h */,
 				F9782DB018C1F96F00D29131 /* AppDelegate.m */,
 				F9782DB218C1F96F00D29131 /* Main_iPhone.storyboard */,
+				F9782F0E18C3526400D29131 /* PhotoCell.h */,
+				F9782F0F18C3526500D29131 /* PhotoCell.m */,
 				F9782E7A18C30BDC00D29131 /* PhotosViewController.h */,
 				F9782E7B18C30BDC00D29131 /* PhotosViewController.m */,
+				F9782F0B18C347D400D29131 /* PhotoViewBaseCell.h */,
+				F9782F0C18C347D400D29131 /* PhotoViewBaseCell.m */,
 				F9782E7718C2CD3900D29131 /* GroupCell.h */,
 				F9782E7818C2CD3900D29131 /* GroupCell.m */,
 				F9782DB518C1F96F00D29131 /* Main_iPad.storyboard */,
@@ -276,7 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9782F1018C3526500D29131 /* PhotoCell.m in Sources */,
 				F9782E7918C2CD3A00D29131 /* GroupCell.m in Sources */,
+				F9782F0D18C347D400D29131 /* PhotoViewBaseCell.m in Sources */,
 				F9782E7C18C30BDC00D29131 /* PhotosViewController.m in Sources */,
 				F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */,
 				F9782DBA18C1F96F00D29131 /* ViewController.m in Sources */,
