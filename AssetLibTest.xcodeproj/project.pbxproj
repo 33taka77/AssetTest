@@ -22,6 +22,11 @@
 		F9782DC518C1F96F00D29131 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA418C1F96F00D29131 /* UIKit.framework */; };
 		F9782DCD18C1F96F00D29131 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9782DCB18C1F96F00D29131 /* InfoPlist.strings */; };
 		F9782DCF18C1F96F00D29131 /* AssetLibTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782DCE18C1F96F00D29131 /* AssetLibTestTests.m */; };
+		F9782DD918C1F9A200D29131 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DD818C1F9A200D29131 /* AssetsLibrary.framework */; };
+		F9782DDB18C1F9B000D29131 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DDA18C1F9B000D29131 /* ImageIO.framework */; };
+		F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782DDD18C205FF00D29131 /* GroupObject.m */; };
+		F9782E7918C2CD3A00D29131 /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782E7818C2CD3900D29131 /* GroupCell.m */; };
+		F9782E7C18C30BDC00D29131 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9782E7B18C30BDC00D29131 /* PhotosViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,14 @@
 		F9782DCA18C1F96F00D29131 /* AssetLibTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AssetLibTestTests-Info.plist"; sourceTree = "<group>"; };
 		F9782DCC18C1F96F00D29131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F9782DCE18C1F96F00D29131 /* AssetLibTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetLibTestTests.m; sourceTree = "<group>"; };
+		F9782DD818C1F9A200D29131 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		F9782DDA18C1F9B000D29131 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F9782DDC18C205FF00D29131 /* GroupObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupObject.h; sourceTree = "<group>"; };
+		F9782DDD18C205FF00D29131 /* GroupObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupObject.m; sourceTree = "<group>"; };
+		F9782E7718C2CD3900D29131 /* GroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCell.h; sourceTree = "<group>"; };
+		F9782E7818C2CD3900D29131 /* GroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCell.m; sourceTree = "<group>"; };
+		F9782E7A18C30BDC00D29131 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
+		F9782E7B18C30BDC00D29131 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9782DDB18C1F9B000D29131 /* ImageIO.framework in Frameworks */,
+				F9782DD918C1F9A200D29131 /* AssetsLibrary.framework in Frameworks */,
 				F9782DA318C1F96F00D29131 /* CoreGraphics.framework in Frameworks */,
 				F9782DA518C1F96F00D29131 /* UIKit.framework in Frameworks */,
 				F9782DA118C1F96F00D29131 /* Foundation.framework in Frameworks */,
@@ -103,6 +118,8 @@
 		F9782D9F18C1F96F00D29131 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9782DDA18C1F9B000D29131 /* ImageIO.framework */,
+				F9782DD818C1F9A200D29131 /* AssetsLibrary.framework */,
 				F9782DA018C1F96F00D29131 /* Foundation.framework */,
 				F9782DA218C1F96F00D29131 /* CoreGraphics.framework */,
 				F9782DA418C1F96F00D29131 /* UIKit.framework */,
@@ -117,9 +134,15 @@
 				F9782DAF18C1F96F00D29131 /* AppDelegate.h */,
 				F9782DB018C1F96F00D29131 /* AppDelegate.m */,
 				F9782DB218C1F96F00D29131 /* Main_iPhone.storyboard */,
+				F9782E7A18C30BDC00D29131 /* PhotosViewController.h */,
+				F9782E7B18C30BDC00D29131 /* PhotosViewController.m */,
+				F9782E7718C2CD3900D29131 /* GroupCell.h */,
+				F9782E7818C2CD3900D29131 /* GroupCell.m */,
 				F9782DB518C1F96F00D29131 /* Main_iPad.storyboard */,
 				F9782DB818C1F96F00D29131 /* ViewController.h */,
 				F9782DB918C1F96F00D29131 /* ViewController.m */,
+				F9782DDC18C205FF00D29131 /* GroupObject.h */,
+				F9782DDD18C205FF00D29131 /* GroupObject.m */,
 				F9782DBB18C1F96F00D29131 /* Images.xcassets */,
 				F9782DA718C1F96F00D29131 /* Supporting Files */,
 			);
@@ -253,6 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9782E7918C2CD3A00D29131 /* GroupCell.m in Sources */,
+				F9782E7C18C30BDC00D29131 /* PhotosViewController.m in Sources */,
+				F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */,
 				F9782DBA18C1F96F00D29131 /* ViewController.m in Sources */,
 				F9782DB118C1F96F00D29131 /* AppDelegate.m in Sources */,
 				F9782DAD18C1F96F00D29131 /* main.m in Sources */,
@@ -474,6 +500,7 @@
 				F9782DD418C1F96F00D29131 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9782DD518C1F96F00D29131 /* Build configuration list for PBXNativeTarget "AssetLibTestTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +509,7 @@
 				F9782DD718C1F96F00D29131 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
