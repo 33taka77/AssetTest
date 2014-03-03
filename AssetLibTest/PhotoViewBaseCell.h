@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoViewBaseCell : UICollectionViewCell
+@interface PhotoViewBaseCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+{
+    NSInteger identifier;
+}
+@property (weak, nonatomic) IBOutlet UICollectionView *thumbnailCollectionView;
 
 @end

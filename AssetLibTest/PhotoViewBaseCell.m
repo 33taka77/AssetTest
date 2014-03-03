@@ -19,6 +19,19 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    static NSInteger counter = 0;
+    self = [super initWithCoder:aDecoder];
+    if( self )
+    {
+        self.thumbnailCollectionView.delegate = self;
+        self.thumbnailCollectionView.dataSource = self;
+        counter++;
+        identifier = counter;
+    }
+    return self;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -27,5 +40,28 @@
     // Drawing code
 }
 */
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    /*
+     SectionData* sectionData = self.dateEntry[section];
+     NSInteger num = sectionData.items.count;
+     return num;
+     */
+    return 5;
+}
+
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoViewBaseCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoThumbnialCell" forIndexPath:indexPath];
+    cell.backgroundView.backgroundColor = [UIColor whiteColor];
+    return cell;
+}
+
 
 @end

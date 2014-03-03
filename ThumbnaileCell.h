@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ThumbnaileCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 
 @end

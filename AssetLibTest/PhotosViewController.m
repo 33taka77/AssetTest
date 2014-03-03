@@ -10,6 +10,9 @@
 #import "GroupObject.h"
 #import <ImageIO/ImageIO.h>
 #import "SectionData.h"
+#import "PhotoViewBaseCell.h"
+#import "ThumbnaileCollectionView.h"
+#import "ThumbnaileCell.h"
 
 
 @interface PhotosViewController ()
@@ -60,23 +63,6 @@
     }
 }
 
-/*
-- (void)buildPhotoDictionary
-{
-    if( self.photoInfoArray == nil )
-    {
-        self.photoInfoArray = [[NSMutableArray alloc] init];
-    }
-    for( ALAsset* asset in self.targetGroupObj.assets )
-    {
-        NSDictionary* dict = [[asset defaultRepresentation] metadata];
-        NSMutableDictionary* targetDictionary = [dict mutableCopy];//[NSMutableDictionary dictionaryWithDictionary:dict];
-        [targetDictionary setObject:asset forKey:@"Asset"];
-        [self.photoInfoArray addObject:targetDictionary];
-    }
-}
-*/
-
 - (void)rebuildForDate:(NSString*)date asset:(ALAsset*)asset
 {
     if( self.dateEntry == nil )
@@ -114,47 +100,6 @@
     title = nil;
     url = nil;
 }
-/*
-- (void)rebuildForDate
-{
-    if( self.dateEntry ==nil )
-    {
-        self.dateEntry = [[NSMutableArray alloc] init];
-        SectionData* emptySection = [[SectionData alloc] initWithTitle:@"Unknown"];
-        [self.dateEntry addObject:emptySection];
-    }
-    
-    for( NSDictionary* dict in self.photoInfoArray )
-    {
-        NSDictionary* exifData = [self getPhotoExifMetaData:dict];
-        NSString* date = exifData[@"DateTimeOriginal"];
-        //NSLog(@"date: %@",date);
-        NSArray* strs = [date componentsSeparatedByString:@" "];
-        NSString* title = strs[0];
-        if( title == nil )
-        {
-            title = @"Unknown";
-        }
-        BOOL isNewItem = YES;
-        for( SectionData* section in self.dateEntry )
-        {
-            if( [section.sectionTitle isEqual:title] )
-            {
-                [section.items addObject:dict];
-                isNewItem = NO;
-                break;
-            }
-        }
-        if( isNewItem == YES )
-        {
-            SectionData* newSection = [[SectionData alloc] initWithTitle:title];
-            [newSection.items addObject:dict];
-            [self.dateEntry addObject:newSection];
-        }
-        //NSLog(@"title: %@ sub:%@",strs[0],strs[1]);
-    }
-}
-*/
 
 - (id)initWitheGroupName:(NSString*)name
 {
@@ -190,5 +135,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
+    {
+        return 1;
+    }else{
+        return self.dateEntry.count;
+    }
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    /*
+    SectionData* sectionData = self.dateEntry[section];
+    NSInteger num = sectionData.items.count;
+    return num;
+    */
+    if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
+    {
+        ThumbnaileCollectionView* thumbnaulCollection = (ThumbnaileCollectionView*)collectionView;
+        NSInteger index = thumbnaulCollection.identifier;
+        SectionData* sectionData = self.dateEntry[index-1];
+        NSInteger num = sectionData.items.count;
+        return num;
+    }else{
+        return 1;//self.dateEntry.count;
+    }
+}
+
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
+    {
+        ThumbnaileCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoThumbnialCell" forIndexPath:indexPath];
+
+        return cell;
+    }else{
+        PhotoViewBaseCell* baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoBaseCell" forIndexPath:indexPath];
+        return baseCell;
+    }
+}
+
 
 @end
