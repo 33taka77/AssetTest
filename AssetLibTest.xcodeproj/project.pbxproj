@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816E10E818C4076E000F5CA2 /* SectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10E718C4076E000F5CA2 /* SectionData.m */; };
+		816E10EB18C40D12000F5CA2 /* AssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10EA18C40D12000F5CA2 /* AssetManager.m */; };
 		F9782DA118C1F96F00D29131 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA018C1F96F00D29131 /* Foundation.framework */; };
 		F9782DA318C1F96F00D29131 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA218C1F96F00D29131 /* CoreGraphics.framework */; };
 		F9782DA518C1F96F00D29131 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA418C1F96F00D29131 /* UIKit.framework */; };
@@ -42,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		816E10E618C4076E000F5CA2 /* SectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionData.h; sourceTree = "<group>"; };
+		816E10E718C4076E000F5CA2 /* SectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionData.m; sourceTree = "<group>"; };
+		816E10E918C40D12000F5CA2 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
+		816E10EA18C40D12000F5CA2 /* AssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetManager.m; sourceTree = "<group>"; };
 		F9782D9D18C1F96F00D29131 /* AssetLibTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetLibTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9782DA018C1F96F00D29131 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F9782DA218C1F96F00D29131 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,10 @@
 				F9782DB218C1F96F00D29131 /* Main_iPhone.storyboard */,
 				F9782E7A18C30BDC00D29131 /* PhotosViewController.h */,
 				F9782E7B18C30BDC00D29131 /* PhotosViewController.m */,
+				816E10E918C40D12000F5CA2 /* AssetManager.h */,
+				816E10EA18C40D12000F5CA2 /* AssetManager.m */,
+				816E10E618C4076E000F5CA2 /* SectionData.h */,
+				816E10E718C4076E000F5CA2 /* SectionData.m */,
 				F9782F0B18C347D400D29131 /* PhotoViewBaseCell.h */,
 				F9782F0C18C347D400D29131 /* PhotoViewBaseCell.m */,
 				F9782E7718C2CD3900D29131 /* GroupCell.h */,
@@ -292,6 +302,8 @@
 				F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */,
 				F9782F1318C371D600D29131 /* ThumbnaileCell.m in Sources */,
 				F9782DBA18C1F96F00D29131 /* ViewController.m in Sources */,
+				816E10EB18C40D12000F5CA2 /* AssetManager.m in Sources */,
+				816E10E818C4076E000F5CA2 /* SectionData.m in Sources */,
 				F9782DB118C1F96F00D29131 /* AppDelegate.m in Sources */,
 				F9782DAD18C1F96F00D29131 /* main.m in Sources */,
 			);
@@ -430,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Takashi Aizawa (2JXBYNAW94)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AssetLibTest/AssetLibTest-Prefix.pch";
 				INFOPLIST_FILE = "AssetLibTest/AssetLibTest-Info.plist";
@@ -443,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Takashi Aizawa (2JXBYNAW94)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AssetLibTest/AssetLibTest-Prefix.pch";
 				INFOPLIST_FILE = "AssetLibTest/AssetLibTest-Info.plist";

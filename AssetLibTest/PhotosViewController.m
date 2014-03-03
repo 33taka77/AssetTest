@@ -9,19 +9,21 @@
 #import "PhotosViewController.h"
 #import "GroupObject.h"
 #import <ImageIO/ImageIO.h>
+#import "SectionData.h"
 
 
 @interface PhotosViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *photoBaseCollection;
 @property (nonatomic, retain) NSMutableArray* dateEntry;
 @property (nonatomic, retain) NSMutableArray* photoInfoArray;
+//@property (nonatomic, retain) NSMutableArray* displayItems;
 @end
 
 @implementation PhotosViewController
 
-- (NSDictionary *)getPhotoMetaData:(ALAsset*)asset {
-    NSDictionary *metaData = [[asset defaultRepresentation] metadata];
-    return [metaData objectForKey:(NSString *)kCGImagePropertyExifDictionary];
+- (NSDictionary *)getPhotoExifMetaData:(NSDictionary*)dict {
+    //NSDictionary *metaData = [[asset defaultRepresentation] metadata];
+    return [dict objectForKey:(NSString *)kCGImagePropertyExifDictionary];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,7 +37,7 @@
     return self;
 }
 
-- (void)buildPhotoDictionsry
+- (void)buildPhotoDictionary
 {
     if( self.photoInfoArray == nil )
     {
@@ -43,7 +45,7 @@
     }
     for( ALAsset* asset in self.targetGroupObj.assets )
     {
-        NSDictionary* dict = [self getPhotoMetaData:asset];
+        NSDictionary* dict = [[asset defaultRepresentation] metadata];
         NSMutableDictionary* targetDictionary = [dict mutableCopy];//[NSMutableDictionary dictionaryWithDictionary:dict];
         [targetDictionary setObject:asset forKey:@"Asset"];
         [self.photoInfoArray addObject:targetDictionary];
@@ -55,11 +57,38 @@
     if( self.dateEntry ==nil )
     {
         self.dateEntry = [[NSMutableArray alloc] init];
+        SectionData* emptySection = [[SectionData alloc] initWithTitle:@"Unknown"];
+        [self.dateEntry addObject:emptySection];
     }
+    
     for( NSDictionary* dict in self.photoInfoArray )
     {
-        //NSDate* date = dict[kCGImagePropertyExifDateTimeOriginal];
-        
+        NSDictionary* exifData = [self getPhotoExifMetaData:dict];
+        NSString* date = exifData[@"DateTimeOriginal"];
+        //NSLog(@"date: %@",date);
+        NSArray* strs = [date componentsSeparatedByString:@" "];
+        NSString* title = strs[0];
+        if( title == nil )
+        {
+            title = @"Unknown";
+        }
+        BOOL isNewItem = YES;
+        for( SectionData* section in self.dateEntry )
+        {
+            if( [section.sectionTitle isEqual:title] )
+            {
+                [section.items addObject:dict];
+                isNewItem = NO;
+                break;
+            }
+        }
+        if( isNewItem == YES )
+        {
+            SectionData* newSection = [[SectionData alloc] initWithTitle:title];
+            [newSection.items addObject:dict];
+            [self.dateEntry addObject:newSection];
+        }
+        //NSLog(@"title: %@ sub:%@",strs[0],strs[1]);
     }
 }
 - (id)initWitheGroupName:(NSString*)name
@@ -77,7 +106,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = self.groupName;
-    
+    [self buildPhotoDictionary];
+    [self rebuildForDate];
 }
 
 - (void)didReceiveMemoryWarning

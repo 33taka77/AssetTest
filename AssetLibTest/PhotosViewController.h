@@ -16,6 +16,7 @@
 //@property (nonatomic, retain) NSMutableArray* group;
 @property (nonatomic, retain) GroupObject* targetGroupObj;
 @property (nonatomic, retain) NSString* groupName;
+;
 
 - (id)initWitheGroupName:(NSString*)name;
 
