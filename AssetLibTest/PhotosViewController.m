@@ -41,13 +41,22 @@
 {
     for( ALAsset* asset in self.targetGroupObj.assets )
     {
-        NSDictionary* dict = [[asset defaultRepresentation] metadata];
-        NSDictionary* exifData = [self getPhotoExifMetaData:dict];
-        NSString* date = exifData[@"DateTimeOriginal"];
-        [self rebuildForDate:date asset:asset];
-        dict = nil;
-        exifData = nil;
-        date = nil;
+        @autoreleasepool {
+            NSDictionary* dict = [[asset defaultRepresentation] metadata];
+            NSDictionary* exifData = [self getPhotoExifMetaData:dict];
+            NSString* date = exifData[@"DateTimeOriginal"];
+            [self rebuildForDate:date asset:asset];
+            dict = nil;
+            exifData = nil;
+            date = nil;
+        }
+    }
+    NSInteger count = self.dateEntry.count;
+    NSLog(@"entry count: %d",count);
+    for( SectionData* section in self.dateEntry )
+    {
+        NSInteger num = section.items.count;
+        NSLog(@"name;%@ count:%d",section.sectionTitle, num);
     }
 }
 
