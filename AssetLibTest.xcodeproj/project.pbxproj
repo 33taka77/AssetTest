@@ -12,6 +12,7 @@
 		816E10EE18C59CB5000F5CA2 /* BaseHeaderVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10ED18C59CB5000F5CA2 /* BaseHeaderVIew.m */; };
 		F958332F18C4AAAF00114C29 /* ThumbnaileCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F958332E18C4AAAF00114C29 /* ThumbnaileCollectionView.m */; };
 		F958333218C5F4A700114C29 /* Params.m in Sources */ = {isa = PBXBuildFile; fileRef = F958333118C5F4A700114C29 /* Params.m */; };
+		F958333518C6143900114C29 /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F958333418C6143900114C29 /* SingletonObject.m */; };
 		F9782DA118C1F96F00D29131 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA018C1F96F00D29131 /* Foundation.framework */; };
 		F9782DA318C1F96F00D29131 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA218C1F96F00D29131 /* CoreGraphics.framework */; };
 		F9782DA518C1F96F00D29131 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA418C1F96F00D29131 /* UIKit.framework */; };
@@ -57,6 +58,8 @@
 		F958332E18C4AAAF00114C29 /* ThumbnaileCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnaileCollectionView.m; sourceTree = "<group>"; };
 		F958333018C5F4A700114C29 /* Params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Params.h; sourceTree = "<group>"; };
 		F958333118C5F4A700114C29 /* Params.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Params.m; sourceTree = "<group>"; };
+		F958333318C6143900114C29 /* SingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
+		F958333418C6143900114C29 /* SingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
 		F9782D9D18C1F96F00D29131 /* AssetLibTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetLibTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9782DA018C1F96F00D29131 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F9782DA218C1F96F00D29131 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,8 @@
 		F9782D9418C1F96F00D29131 = {
 			isa = PBXGroup;
 			children = (
+				F958333318C6143900114C29 /* SingletonObject.h */,
+				F958333418C6143900114C29 /* SingletonObject.m */,
 				F9782DA618C1F96F00D29131 /* AssetLibTest */,
 				F9782DC818C1F96F00D29131 /* AssetLibTestTests */,
 				F9782D9F18C1F96F00D29131 /* Frameworks */,
@@ -321,6 +326,7 @@
 				F9782F1318C371D600D29131 /* ThumbnaileCell.m in Sources */,
 				F9782DBA18C1F96F00D29131 /* ViewController.m in Sources */,
 				816E10EB18C40D12000F5CA2 /* AssetManager.m in Sources */,
+				F958333518C6143900114C29 /* SingletonObject.m in Sources */,
 				816E10E818C4076E000F5CA2 /* SectionData.m in Sources */,
 				F9782DB118C1F96F00D29131 /* AppDelegate.m in Sources */,
 				F9782DAD18C1F96F00D29131 /* main.m in Sources */,
