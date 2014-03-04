@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		816E10E818C4076E000F5CA2 /* SectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10E718C4076E000F5CA2 /* SectionData.m */; };
 		816E10EB18C40D12000F5CA2 /* AssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10EA18C40D12000F5CA2 /* AssetManager.m */; };
+		816E10EE18C59CB5000F5CA2 /* BaseHeaderVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 816E10ED18C59CB5000F5CA2 /* BaseHeaderVIew.m */; };
 		F958332F18C4AAAF00114C29 /* ThumbnaileCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F958332E18C4AAAF00114C29 /* ThumbnaileCollectionView.m */; };
 		F9782DA118C1F96F00D29131 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA018C1F96F00D29131 /* Foundation.framework */; };
 		F9782DA318C1F96F00D29131 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9782DA218C1F96F00D29131 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 		816E10E718C4076E000F5CA2 /* SectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionData.m; sourceTree = "<group>"; };
 		816E10E918C40D12000F5CA2 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
 		816E10EA18C40D12000F5CA2 /* AssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetManager.m; sourceTree = "<group>"; };
+		816E10EC18C59CB5000F5CA2 /* BaseHeaderVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHeaderVIew.h; sourceTree = "<group>"; };
+		816E10ED18C59CB5000F5CA2 /* BaseHeaderVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHeaderVIew.m; sourceTree = "<group>"; };
 		F958332D18C4AAAF00114C29 /* ThumbnaileCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnaileCollectionView.h; sourceTree = "<group>"; };
 		F958332E18C4AAAF00114C29 /* ThumbnaileCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnaileCollectionView.m; sourceTree = "<group>"; };
 		F9782D9D18C1F96F00D29131 /* AssetLibTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetLibTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +158,8 @@
 				F958332E18C4AAAF00114C29 /* ThumbnaileCollectionView.m */,
 				F9782E7A18C30BDC00D29131 /* PhotosViewController.h */,
 				F9782E7B18C30BDC00D29131 /* PhotosViewController.m */,
+				816E10EC18C59CB5000F5CA2 /* BaseHeaderVIew.h */,
+				816E10ED18C59CB5000F5CA2 /* BaseHeaderVIew.m */,
 				816E10E918C40D12000F5CA2 /* AssetManager.h */,
 				816E10EA18C40D12000F5CA2 /* AssetManager.m */,
 				816E10E618C4076E000F5CA2 /* SectionData.h */,
@@ -303,6 +308,7 @@
 			files = (
 				F9782E7918C2CD3A00D29131 /* GroupCell.m in Sources */,
 				F9782F0D18C347D400D29131 /* PhotoViewBaseCell.m in Sources */,
+				816E10EE18C59CB5000F5CA2 /* BaseHeaderVIew.m in Sources */,
 				F958332F18C4AAAF00114C29 /* ThumbnaileCollectionView.m in Sources */,
 				F9782E7C18C30BDC00D29131 /* PhotosViewController.m in Sources */,
 				F9782DDE18C205FF00D29131 /* GroupObject.m in Sources */,

@@ -13,6 +13,7 @@
 #import "PhotoViewBaseCell.h"
 #import "ThumbnaileCollectionView.h"
 #import "ThumbnaileCell.h"
+#import "BaseHeaderVIew.h"
 
 
 @interface PhotosViewController ()
@@ -218,10 +219,39 @@
 
         retval = image.size.width > 0 ? CGSizeMake(image.size.width, image.size.height): CGSizeMake(100, 100);
     }else{
+        /*
+        switch ([UIApplication sharedApplication].statusBarOrientation) {
+            case UIInterfaceOrientationPortrait:
+            case UIInterfaceOrientationPortraitUpsideDown:
+                retval = CGSizeMake(kBaseCellWidth, kBaseCellHeight);
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+            case UIInterfaceOrientationLandscapeRight:
+                retval = CGSizeMake(kBaseCellHeight, kBaseCellWidth);
+            default:
+                break;
+        }
+        */
         retval = CGSizeMake(kBaseCellWidth, kBaseCellHeight);
     }
-    retval.height += 15; retval.width += 15;
+    //retval.height += 15; retval.width += 15;
     return retval;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
+    {
+        return nil;
+    }else{
+        BaseHeaderVIew *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BaseHeader" forIndexPath:indexPath];
+        
+        SectionData* sectionData = self.dateEntry[indexPath.section];
+        NSString* title = sectionData.sectionTitle;
+        headerView.headerTitle.text = title;
+        return headerView;
+    }
+}
+
 
 @end
