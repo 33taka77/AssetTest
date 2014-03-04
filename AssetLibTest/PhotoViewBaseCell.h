@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SectionData.h"
+
+@protocol PhotoViewBaseCellDelegate
+
+- (SectionData*)prepareDataWithIndex:(NSInteger)index;
+
+@end
 
 @interface PhotoViewBaseCell : UICollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     NSInteger identifier;
 }
++(void)setSectionData:(NSMutableArray*)data;
 @property (weak, nonatomic) IBOutlet UICollectionView *thumbnailCollectionView;
+@property id < PhotoViewBaseCellDelegate > delegate;
+@property (nonatomic, retain) SectionData* sectionData;
+- (void)initializeData:(NSNotification *)notification;
 
 @end

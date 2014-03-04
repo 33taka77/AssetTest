@@ -10,9 +10,12 @@
 
 @implementation AppDelegate
 
+@synthesize gParam;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    gParam = [[NSString alloc] initWithFormat:@"test data"];
     return YES;
 }
 							

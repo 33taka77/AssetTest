@@ -7,8 +7,18 @@
 //
 
 #import "PhotoViewBaseCell.h"
+#import "Params.h"
+#import "AppDelegate.h"
 
 @implementation PhotoViewBaseCell
+
+static NSInteger counter = 0;
+static NSMutableArray* sectionData = nil;
+
++(void)setSectionData:(NSMutableArray*)data
+{
+    sectionData = data;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -19,19 +29,47 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (id)init
 {
-    static NSInteger counter = 0;
-    self = [super initWithCoder:aDecoder];
-    if( self )
+    self = [super init];
+    if(self != nil)
     {
-        self.thumbnailCollectionView.delegate = self;
-        self.thumbnailCollectionView.dataSource = self;
-        counter++;
-        identifier = counter;
+        
     }
     return self;
 }
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    
+    self = [super initWithCoder:aDecoder];
+    if( self )
+    {
+        //self.thumbnailCollectionView.delegate = self;
+        //self.thumbnailCollectionView.dataSource = self;
+        identifier = counter;
+        counter++;
+        Params* pram = [[Params alloc] init];
+        pram.param1 = identifier;
+        self.sectionData = [self.delegate prepareDataWithIndex:identifier];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(initializeData:) name:@"BaseCollectionInit" object:pram];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"BaseCollectionInit" object:self userInfo:nil];
+        
+        AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        NSLog(@" param = %@",appDelegate.gParam);
+        
+    }
+    return self;
+}
+
+- (void)initializeData:(NSNotification *)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
+    SectionData *dataEntry = userInfo[@"data"];
+    sectionData = dataEntry;
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

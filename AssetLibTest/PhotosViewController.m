@@ -14,6 +14,7 @@
 #import "ThumbnaileCollectionView.h"
 #import "ThumbnaileCell.h"
 #import "BaseHeaderVIew.h"
+#import "PhotoViewBaseCell.h"
 
 
 @interface PhotosViewController ()
@@ -28,6 +29,12 @@
 #define kBaseCellWidth      (320)
 #define kBaseCellHeight     (170)
 
+- (GroupObject*)prepareDataWithIndex:(NSInteger)index
+{
+    return self.dateEntry[index];
+}
+
+
 - (NSDictionary *)getPhotoExifMetaData:(NSDictionary*)dict {
     //NSDictionary *metaData = [[asset defaultRepresentation] metadata];
     return [dict objectForKey:(NSString *)kCGImagePropertyExifDictionary];
@@ -40,8 +47,15 @@
         // Custom initialization
 //        self.photoInfoArray = nil;
         self.dateEntry = nil;
+        PhotoViewBaseCell* cell = [[PhotoViewBaseCell alloc] init];
+        cell.delegate = self;
     }
     return self;
+}
+
+- (void)initializeData:(NSNotification *)notification
+{
+    
 }
 
 - (void)buildSectionsForDate
@@ -135,6 +149,10 @@
 	// Do any additional setup after loading the view.
     self.navigationItem.title = self.groupName;
     [self buildSectionsForDate];
+    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+    [userInfo setValue:self.dateEntry forKey:@"data"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BaseCollectionInit" object:self userInfo:userInfo];
+    [PhotoViewBaseCell setSectionData:self.dateEntry];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
