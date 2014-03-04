@@ -10,6 +10,8 @@
 
 @implementation ThumbnaileCollectionView
 
+@synthesize identifier;
+
 static NSInteger counter = 0;
 
 - (id)initWithFrame:(CGRect)frame

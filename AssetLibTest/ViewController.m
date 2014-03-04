@@ -39,7 +39,7 @@
             obj.groupAssets = group;
             [self.group addObject:obj];
             [self searchPhotos:obj];
-            NSLog(@"Group:%@ images:%d",[obj.groupAssets valueForProperty:ALAssetsGroupPropertyName], obj.assets.count );
+            NSLog(@"Group:%@ images:%lu",[obj.groupAssets valueForProperty:ALAssetsGroupPropertyName], (unsigned long)obj.assets.count );
             [self.groupCollectionView reloadData];
         }
     };

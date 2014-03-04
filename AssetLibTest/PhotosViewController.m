@@ -24,6 +24,9 @@
 
 @implementation PhotosViewController
 
+#define kBaseCellWidth      (320)
+#define kBaseCellHeight     (170)
+
 - (NSDictionary *)getPhotoExifMetaData:(NSDictionary*)dict {
     //NSDictionary *metaData = [[asset defaultRepresentation] metadata];
     return [dict objectForKey:(NSString *)kCGImagePropertyExifDictionary];
@@ -55,11 +58,11 @@
         }
     }
     NSInteger count = self.dateEntry.count;
-    NSLog(@"entry count: %d",count);
+    NSLog(@"entry count: %ld",(long)count);
     for( SectionData* section in self.dateEntry )
     {
         NSInteger num = section.items.count;
-        NSLog(@"name;%@ count:%d",section.sectionTitle, num);
+        NSLog(@"name;%@ count:%ld",section.sectionTitle, (long)num);
     }
 }
 
@@ -99,6 +102,20 @@
     strs = nil;
     title = nil;
     url = nil;
+}
+
+- (ALAsset*)GetAssetFromArray:(NSURL*)url
+{
+    ALAsset* result = nil;
+    for( ALAsset* asset in self.targetGroupObj.assets )
+    {
+        if( [[asset valueForProperty:ALAssetPropertyAssetURL] isEqual:url] )
+        {
+            result = asset;
+            break;
+        }
+    }
+    return result;
 }
 
 - (id)initWitheGroupName:(NSString*)name
@@ -170,7 +187,14 @@
     if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
     {
         ThumbnaileCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoThumbnialCell" forIndexPath:indexPath];
-
+        ThumbnaileCollectionView* thumbnaulCollection = (ThumbnaileCollectionView*)collectionView;
+        NSInteger index = thumbnaulCollection.identifier;
+        SectionData* sectionData = self.dateEntry[index-1];
+        NSURL* targetUrl = sectionData.items[indexPath.row];
+        ALAsset* asset = [self GetAssetFromArray:targetUrl];
+        
+        UIImage* image = [UIImage imageWithCGImage:[asset thumbnail]];
+        cell.thumbnailImageView.image = image;
         return cell;
     }else{
         PhotoViewBaseCell* baseCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoBaseCell" forIndexPath:indexPath];
@@ -178,5 +202,26 @@
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGSize retval;
+    if( [collectionView isKindOfClass:[ThumbnaileCollectionView class]] )
+    {
+        ThumbnaileCollectionView* thumbnaulCollection = (ThumbnaileCollectionView*)collectionView;
+        NSInteger index = thumbnaulCollection.identifier;
+        SectionData* sectionData = self.dateEntry[index-1];
+        NSURL* targetUrl = sectionData.items[indexPath.row];
+        ALAsset* asset = [self GetAssetFromArray:targetUrl];
+
+        UIImage* image = [UIImage imageWithCGImage:[asset thumbnail]];
+
+        retval = image.size.width > 0 ? CGSizeMake(image.size.width, image.size.height): CGSizeMake(100, 100);
+    }else{
+        retval = CGSizeMake(kBaseCellWidth, kBaseCellHeight);
+    }
+    retval.height += 15; retval.width += 15;
+    return retval;
+}
 
 @end
